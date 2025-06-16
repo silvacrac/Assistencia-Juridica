@@ -11,59 +11,32 @@
 
     <div id="login-screen" class="auth-screen">
         <div class="auth-box">
+            <img src="logo.png" alt="Logotipo IPAJ-Connect" class="login-logo">
             <h1><i class="fa-solid fa-gavel"></i> IPAJ-Connect</h1>
             <p>A sua rede social do Instituto de Patrocínio e Assistência Jurídica (IPAJ).</p>
-            <form id="login-form">
-                <input type="email" placeholder="Email" required value="joana.filipe@email.com">
-                <input type="password" placeholder="Senha" required value="123">
-                <button type="submit">Entrar</button>
-            </form>
+            <form id="login-form"><input type="email" placeholder="Email" required value="joana.filipe@email.com"><input type="password" placeholder="Senha" required value="123"><button type="submit">Entrar</button></form>
             <a href="#" id="show-signup">Não tem conta? Crie uma agora.</a>
         </div>
     </div>
     
     <div id="signup-screen" class="auth-screen" style="display: none;">
          <div class="auth-box">
+            <img src="logo.png" alt="Logotipo IPAJ-Connect" class="login-logo">
             <h1><i class="fa-solid fa-user-plus"></i> Criar Conta</h1>
-            <p>Junte-se ao IPAJ-Connect.</p>
-            <form id="signup-form">
-                <input type="text" placeholder="Nome Completo" required>
-                <input type="email" placeholder="Email" required>
-                <input type="password" placeholder="Senha" required>
-                <button type="submit">Criar Conta</button>
-            </form>
+            <form id="signup-form"><input type="text" placeholder="Nome Completo" required><input type="email" placeholder="Email" required><input type="password" placeholder="Senha" required><button type="submit">Criar Conta</button></form>
             <a href="#" id="show-login">Já tem conta? Faça login.</a>
         </div>
     </div>
 
     <div id="app-container" style="display: none;">
         <header class="main-header">
-            <div class="header-left">
-                <i class="fa-solid fa-gavel"></i>
-                <input type="search" placeholder="Pesquisar no IPAJ-Connect...">
-            </div>
+            <div class="header-left"><img src="logo.png" alt="Logotipo IPAJ-Connect" class="header-logo"><input type="search" placeholder="Pesquisar..."></div>
             <div class="header-right">
-                <div class="user-role-switcher">
-                    <span>Simular Perfil:</span>
-                    <select id="role-selector">
-                        <option value="cliente" selected>Cliente (Cidadão)</option>
-                        <option value="advogado">Advogado</option>
-                        <option value="admin">Administrador</option>
-                    </select>
-                </div>
-                <div class="notification-icon" id="notification-bell">
-                    <i class="fa-solid fa-bell"></i>
-                    <span class="notification-dot"></span>
-                </div>
+                <div class="user-role-switcher"><span>Simular:</span><select id="role-selector"><option value="cliente">Cliente</option><option value="advogado">Advogado</option><option value="admin">Admin</option></select></div>
+                <div class="notification-icon" id="notification-bell"><i class="fa-solid fa-bell"></i><span class="notification-dot"></span></div>
                 <div class="theme-switcher"><i class="fa-solid fa-moon"></i></div>
                 <div class="avatar-icon-wrapper profile-avatar-header"><i class="fa-solid fa-user-circle"></i></div>
-                
-                <div id="notification-panel" class="notification-panel">
-                    <h3>Notificações</h3>
-                    <div id="notification-list">
-                        <p class="empty-notification">Nenhuma notificação nova.</p>
-                    </div>
-                </div>
+                <div id="notification-panel" class="notification-panel"><h3>Notificações</h3><div id="notification-list"></div></div>
             </div>
         </header>
 
@@ -71,8 +44,7 @@
             <aside id="left-sidebar">
                 <div class="profile-summary">
                     <div class="avatar-icon-wrapper profile-avatar-sidebar"><i class="fa-solid fa-user-circle"></i></div>
-                    <h3 id="sidebar-username">Joana Filipe</h3>
-                    <p id="sidebar-usertype">Cidadã</p>
+                    <h3 id="sidebar-username"></h3><p id="sidebar-usertype"></p>
                 </div>
                 <nav class="main-nav">
                     <ul>
@@ -82,65 +54,61 @@
                         <li data-view="admin" id="admin-nav-link" style="display: none;"><i class="fa-solid fa-shield-halved"></i><span>Painel Admin</span></li>
                     </ul>
                 </nav>
-                <button class="btn-assistencia" id="btn-solicitar-assistencia">
-                    <i class="fa-solid fa-scale-balanced"></i> Solicitar Assistência
-                </button>
+                <button class="btn-assistencia" id="btn-solicitar-assistencia"><i class="fa-solid fa-scale-balanced"></i> Solicitar Assistência</button>
             </aside>
 
             <main id="main-content">
                 <div id="feed-view" class="view active-view">
-                    <div class="create-post" id="create-post-section" style="display: none;">
-                        <textarea id="create-post-text" placeholder="Partilhe uma atualização jurídica, Dr(a)..."></textarea>
-                        <div class="create-post-actions">
-                            <input type="text" id="create-post-image" placeholder="URL da imagem (opcional)">
-                            <button id="create-post-btn" class="btn-primary">Publicar</button>
-                        </div>
-                    </div>
-
-                    <div id="feed-posts-container">
-                    </div>
+                    <div id="lawyer-sections-container"></div>
+                    <div class="create-post" id="create-post-section" style="display: none;"><textarea id="create-post-text" placeholder="Partilhe uma atualização jurídica..."></textarea><div class="create-post-actions"><input type="text" id="create-post-image" placeholder="URL da imagem (opcional)"><button id="create-post-btn" class="btn-primary">Publicar</button></div></div>
+                    <div id="feed-posts-container"></div>
                 </div>
 
                 <div id="chat-view" class="view">
                     <div class="chat-layout">
-                        <aside class="chat-list-container">
-                            <h3>Conversas</h3>
-                            <div id="chat-list"></div>
-                        </aside>
+                        <aside class="chat-list-container"><h3>Conversas</h3><div id="chat-list"></div></aside>
                         <div class="chat-window">
                             <div id="chat-welcome-screen"><i class="fa-solid fa-comments"></i><h2>Selecione uma conversa</h2></div>
                             <div id="chat-conversation-area" style="display: none;">
                                 <div class="chat-header"><h3 id="chat-with-name"></h3><p id="chat-with-role"></p><button id="denounce-lawyer-btn" class="btn-action btn-denounce" style="display: none;"><i class="fa-solid fa-gavel"></i> Denunciar</button></div>
                                 <div class="chat-messages"></div>
-                                <div class="chat-input-area"><input type="text" id="chat-message-input" placeholder="Escreva a sua mensagem..."><button id="chat-send-btn" class="btn-primary"><i class="fa-solid fa-paper-plane"></i></button></div>
+                                <div class="chat-input-area"><input type="file" id="chat-file-input" style="display:none;"><button id="chat-attach-btn"><i class="fa-solid fa-paperclip"></i></button><input type="text" id="chat-message-input" placeholder="Escreva a sua mensagem..."><button id="chat-send-btn" class="btn-primary"><i class="fa-solid fa-paper-plane"></i></button></div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div id="profile-view" class="view">
-                    <div class="profile-page">
-                        <div class="profile-header-banner"><img src="https://images.unsplash.com/photo-1554147090-e1221a04a025?q=80&w=1748&auto=format&fit=crop" class="profile-cover-img" alt="Capa do Perfil">
-                            <div class="avatar-icon-wrapper profile-main-avatar"><i class="fa-solid fa-user-circle"></i></div>
+                <div id="profile-view" class="view"><div class="profile-page"><div class="profile-header-banner"><img src="https://images.unsplash.com/photo-1554147090-e1221a04a025?q=80&w=1748&auto=format&fit=crop" class="profile-cover-img" alt="Capa"><div class="avatar-icon-wrapper profile-main-avatar"><i class="fa-solid fa-user-circle"></i></div></div><div class="profile-info"><h2 id="profile-main-name"></h2><p id="profile-main-bio"></p></div></div></div>
+                
+                <div id="case-details-view" class="view">
+                    <div class="case-details-container">
+                        <button id="back-to-feed-btn" class="btn-back"><i class="fa-solid fa-arrow-left"></i> Voltar</button>
+                        <h2 id="case-details-title"></h2>
+                        <div class="case-info-grid">
+                            <div class="info-item"><strong>Cliente:</strong> <span id="case-details-client"></span></div>
+                            <div class="info-item"><strong>Advogado:</strong> <span id="case-details-lawyer"></span></div>
+                            <div class="info-item"><strong>Área:</strong> <span id="case-details-area"></span></div>
+                            <div class="info-item"><strong>Status:</strong> <span id="case-details-status"></span></div>
                         </div>
-                        <div class="profile-info"><h2 id="profile-main-name"></h2><p id="profile-main-bio"></p></div>
+                        <div class="info-item-full"><strong>Descrição Inicial:</strong><p id="case-details-description"></p></div>
+                        <div class="info-item-full"><h3>Documentos do Caso</h3><div id="case-details-docs"></div></div>
                     </div>
                 </div>
-                
+
                 <div id="admin-view" class="view">
                      <h2><i class="fa-solid fa-shield-halved"></i> Painel de Administração</h2>
                     <div class="admin-section">
-                        <h3><i class="fa-solid fa-inbox"></i> Solicitações Pendentes</h3>
-                        <table id="pending-requests-table" class="data-table"><thead><tr><th>Cliente</th><th>Área</th><th>Data</th><th>Ação</th></tr></thead><tbody></tbody></table>
+                        <h3><i class="fa-solid fa-user-plus"></i> Cadastrar Novo Utilizador</h3>
+                        <form id="register-user-form" class="user-form">
+                            <input type="text" id="reg-name" placeholder="Nome Completo" required>
+                            <input type="email" id="reg-email" placeholder="Email" required>
+                            <input type="password" id="reg-password" placeholder="Senha Temporária" required>
+                            <select id="reg-role" required><option value="cliente">Cliente</option><option value="advogado">Advogado</option><option value="admin">Administrador</option></select>
+                            <button type="submit" class="btn-primary">Cadastrar Utilizador</button>
+                        </form>
                     </div>
-                    <div class="admin-section">
-                        <h3><i class="fa-solid fa-flag"></i> Gestão de Denúncias</h3>
-                        <table id="denuncias-table" class="data-table"><thead><tr><th>Cliente</th><th>Advogado</th><th>Motivo</th><th>Status</th></tr></thead><tbody></tbody></table>
-                    </div>
-                    <div class="admin-section">
-                        <h3><i class="fa-solid fa-circle-exclamation"></i> Casos Rejeitados</h3>
-                        <table id="rejected-cases-table" class="data-table"><thead><tr><th>Advogado</th><th>Cliente</th><th>Motivo</th><th>Ações</th></tr></thead><tbody></tbody></table>
-                    </div>
+                    <div class="admin-section"><h3><i class="fa-solid fa-inbox"></i> Solicitações Pendentes</h3><table id="pending-requests-table" class="data-table"><thead><tr><th>Cliente</th><th>Área</th><th>Data</th><th>Ação</th></tr></thead><tbody></tbody></table></div>
+                    <div class="admin-section"><h3><i class="fa-solid fa-flag"></i> Gestão de Denúncias</h3><table id="denuncias-table" class="data-table"><thead><tr><th>Cliente</th><th>Advogado</th><th>Motivo</th><th>Status</th></tr></thead><tbody></tbody></table></div>
                 </div>
             </main>
 
@@ -156,8 +124,7 @@
         </nav>
     </div>
     
-    <div id="assistencia-modal" class="modal"><div class="modal-content"><span class="close-modal">×</span><h2>Solicitar Assistência Jurídica</h2><form id="assistencia-form"><label for="area-direito">Área de Direito:</label><select id="area-direito"><option>Direito de Terras</option><option>Direito da Família</option><option>Registo e Notariado</option><option>Direito Penal</option><option>Direito do Trabalho</option></select><label for="descricao-caso">Descreva a sua situação:</label><textarea id="descricao-caso" rows="6"></textarea><button type="submit" class="btn-primary">Enviar</button></form></div></div>
-    <div id="rejection-modal" class="modal"><div class="modal-content"><span class="close-modal">×</span><h2>Justificar Rejeição</h2><form id="rejection-form"><input type="hidden" id="rejection-case-id"><label for="rejection-reason">Motivo:</label><textarea id="rejection-reason" rows="5" required></textarea><button type="submit" class="btn-primary">Confirmar</button></form></div></div>
+    <div id="assistencia-modal" class="modal"><div class="modal-content"><span class="close-modal">×</span><h2>Solicitar Assistência</h2><form id="assistencia-form"><label for="area-direito">Área:</label><select id="area-direito"><option>Direito de Terras</option><option>Direito da Família</option><option>Registo e Notariado</option><option>Direito Penal</option><option>Direito do Trabalho</option></select><label for="descricao-caso">Descrição:</label><textarea id="descricao-caso" rows="6"></textarea><button type="submit" class="btn-primary">Enviar</button></form></div></div>
     <div id="denuncia-modal" class="modal"><div class="modal-content"><span class="close-modal">×</span><h2>Denunciar Advogado</h2><form id="denuncia-form"><input type="hidden" id="denuncia-case-id"><label for="denuncia-reason">Motivo:</label><textarea id="denuncia-reason" rows="5" required></textarea><button type="submit" class="btn-primary">Enviar</button></form></div></div>
 
     <script src="script.js"></script>
